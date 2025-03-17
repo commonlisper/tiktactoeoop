@@ -30,9 +30,9 @@ public class GameResultAnalyzer {
     private boolean isColumnsWin(Symbol symbol) {
         int symbolCount = 0;
 
-        for (int row = 0; row < board.dimention(); row++) {
+        for (int column = 0; column < board.dimention(); column++) {
             symbolCount = 0;
-            for (int column = 0; column < board.dimention(); column++) {
+            for (int row = 0; row < board.dimention(); row++) {
                 if (board.get(row, column) == symbol) {
                     symbolCount++;
                 }
@@ -49,9 +49,9 @@ public class GameResultAnalyzer {
     private boolean isRowsWin(Symbol symbol) {
         int symbolCount = 0;
 
-        for (int column = 0; column < board.dimention(); column++) {
+        for (int row = 0; row < board.dimention(); row++) {
             symbolCount = 0;
-            for (int row = 0; row < board.dimention(); row++) {
+            for (int column = 0; column < board.dimention(); column++) {
                 if (board.get(row, column) == symbol) {
                     symbolCount++;
                 }
@@ -82,6 +82,10 @@ public class GameResultAnalyzer {
 
         for (int row = 0; row < board.dimention(); row++) {
             for (int column = board.dimention() - 1; column >= 0; column--) {
+                if (Math.abs(row + column) != 2) {
+                    continue;
+                }
+
                 if (board.get(row, column) == symbol) {
                     symbolCount++;
                 }

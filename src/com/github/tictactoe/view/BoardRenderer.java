@@ -14,8 +14,15 @@ public class BoardRenderer {
 
         for (int row = 0; row < board.dimention(); row++) {
             for (int column = 0; column < board.dimention(); column++) {
-                view.append(board.get(row, column)).append(" ");
+                if (board.isEmptyCell(row, column)) {
+                    view.append(" |");
+                    continue;
+                }
+
+                view.append(board.get(row, column))
+                        .append("|");
             }
+
             view.append("\n");
         }
 

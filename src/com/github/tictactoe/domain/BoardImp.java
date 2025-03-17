@@ -19,7 +19,7 @@ public class BoardImp implements Board {
     @Override
     public int dimention() {
         return dimension;
-    } 
+    }
 
     @Override
     public void put(Symbol symbol, Coords coords) {
@@ -55,9 +55,9 @@ public class BoardImp implements Board {
 
     @Override
     public boolean isFull() {
-        for (int i = 0; i < symbols.length; i++) {
-            for (int j = 0; j < symbols.length; j++) {
-                if (!isEmptyCell(i, j))
+        for (int row = 0; row < dimention(); row++) {
+            for (int column = 0; column < dimention(); column++) {
+                if (isEmptyCell(row, column))
                     return false;
             }
         }
